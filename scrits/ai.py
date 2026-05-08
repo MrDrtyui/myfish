@@ -49,7 +49,7 @@ messages.append({"role": "user", "content": user_input})
 response = ollama.chat(model=MODEL, messages=messages, stream=True)
 
 full = ""
-with Live(console=console, refresh_per_second=10, vertical_overflow="visible") as live:
+with Live(console=console, refresh_per_second=10) as live:
     for chunk in response:
         full += chunk["message"]["content"]
         live.update(Markdown(full, code_theme="one-dark"))
